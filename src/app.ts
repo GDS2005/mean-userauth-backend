@@ -12,6 +12,8 @@ import { jwtStrategy } from './modules/auth';
 import { authLimiter } from './modules/utils';
 import { ApiError, errorConverter, errorHandler } from './modules/errors';
 import routes from './routes/v1';
+//import path from 'path';
+//import { fileURLToPath } from 'url';
 
 const app: Express = express();
 
@@ -62,5 +64,16 @@ app.use(errorConverter);
 
 // handle error
 app.use(errorHandler);
+
+// Serve static files from the uploads directory
+// Get the filename of the current module
+//const __filename = fileURLToPath(import.meta.url);
+// Get the directory name of the main directory
+//const __dirname = path.dirname(path.dirname(__filename));
+
+// Serve static files from the 'uploads' directory
+//app.use(express.static(path.join(__dirname, 'uploads/')));
+
+//console.log("Uploads route: ",path.join(__dirname, 'uploads/'))
 
 export default app;
